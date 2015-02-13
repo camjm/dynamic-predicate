@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/camjm/dynamic-predicate/issues"
   },
-  "homepage": "https://github.com/camjm/dynamic-predicate"
+  "homepage": "https://github.com/camjm/dynamic-predicate",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
