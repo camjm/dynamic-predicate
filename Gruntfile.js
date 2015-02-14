@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 				stripBanners: true
 			},
 			dist: {
-				src: ['src/<%= pkg.name %>.js'],
+				src: ['src/predicate.model.js', 'src/predicate.viewmodel.js'],
 				dest: 'build/<%= pkg.name %>.js'
 			}
 		},
