@@ -9,7 +9,17 @@ module.exports = function(grunt) {
 		+ '* <%= pkg.homepage %>\n'
 		+ '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n',
 		jshint: {
-
+			files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+			options: {
+				globals: {
+					jQuery: true
+				}
+			}
+		},
+		bower: {
+			dev: {
+				dest: 'lib'
+			}
 		},
 		clean: {
 			src: ['build']
@@ -36,12 +46,13 @@ module.exports = function(grunt) {
 	});
 
 	// Load the plugin that provides the "uglify" task.
-	grunt.registerTask('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-bower');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	// Default tasks(s).
-	grunt.registerTask('default', ['clean', 'concat', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'bower', 'clean', 'concat', 'uglify']);
 
 }
